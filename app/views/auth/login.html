@@ -1,0 +1,33 @@
+{% extends "layouts/index.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="row">
+        <form action="/login" method="post">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.customerId.label }}
+                {{ form.customerId (class_="form-control") }}
+
+                {{ form.password.label }}
+                {{ form.password (class_="form-control") }}
+
+
+                {% for message in form.customerId.errors %}
+                <small id="emailHelp" class="form-text text-muted">{{ message }}</small>
+                {% endfor %}
+                
+              </div>
+              <centre>
+              {{ form.submit (class_="form-control") }}
+              <centre>
+
+            </form>
+
+    </div>
+</div>
+
+{% endblock %}
